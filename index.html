@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Programmers' Day</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: yellow;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: monospace;
+            white-space: pre;
+        }
+
+        .ascii-text {
+            text-align: center;
+            font-size: 16px;
+            line-height: 18px;
+        }
+
+        .typewriter {
+            text-align: center;
+            font-size: 16px;
+            line-height: 25px;
+        }
+
+        .typewriter p {
+            font-size: 24px;
+            border-right: 2px solid yellow;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 4s steps(60, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent;
+            }
+
+            50% {
+                border-color: yellow;
+            }
+        }
+
+        .char {
+            display: inline-block;
+            transition: color 0.5s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ascii-text">
+        <pre id="asciiArt">
+            222222222222222    555555555555555555         66666666        tttt         hhhhhhh             
+            2:::::::::::::::22  5::::::::::::::::5        6::::::6      ttt:::t         h:::::h             
+            2::::::222222:::::2 5::::::::::::::::5       6::::::6       t:::::t         h:::::h             
+            2222222     2:::::2 5:::::555555555555      6::::::6        t:::::t         h:::::h             
+                        2:::::2 5:::::5                6::::::6   ttttttt:::::ttttttt    h::::h hhhhh       
+                        2:::::2 5:::::5               6::::::6    t:::::::::::::::::t    h::::hh:::::hhh    
+                     2222::::2  5:::::5555555555     6::::::6     t:::::::::::::::::t    h::::::::::::::hh  
+                22222::::::22   5:::::::::::::::5   6::::::::66666tttttt:::::::tttttt    h:::::::hhh::::::h 
+              22::::::::222     555555555555:::::5 6::::::::::::::66    t:::::t          h::::::h   h::::::h
+             2:::::22222                    5:::::56::::::66666:::::6   t:::::t          h:::::h     h:::::h
+            2:::::2                         5:::::56:::::6     6:::::6  t:::::t          h:::::h     h:::::h
+            2:::::2             5555555     5:::::56:::::6     6:::::6  t:::::t    tttttth:::::h     h:::::h
+            2:::::2       2222225::::::55555::::::56::::::66666::::::6  t::::::tttt:::::th:::::h     h:::::h
+            2::::::2222222:::::2 55:::::::::::::55  66:::::::::::::66   tt::::::::::::::th:::::h     h:::::h
+            2::::::::::::::::::2   55:::::::::55      66:::::::::66       tt:::::::::::tth:::::h     h:::::h
+            22222222222222222222     555555555          666666666           ttttttttttt  hhhhhhh     hhhhhhh
+                    </pre>
+        <div class="typewriter">
+            <p>Happy 256th Day of the Year to Programmers</p>
+        </div>
+    </div>
+
+    <script>
+        function getRandomColor() {
+            const colors = ["yellow", "grey", "red", "blue"];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        function colorizeAsciiArt() {
+            const asciiArt = document.getElementById("asciiArt");
+            const text = asciiArt.textContent;
+            asciiArt.innerHTML = "";
+
+            for (let char of text) {
+                const span = document.createElement("span");
+                span.textContent = char;
+                span.style.color = getRandomColor();
+                asciiArt.appendChild(span);
+            }
+        }
+
+        setInterval(colorizeAsciiArt, 500)
+    </script>
+</body>
+
+</html>
